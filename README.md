@@ -14,7 +14,7 @@ My goals are to:
 
 - Implement known attacks, from first principles.
 
-- Invent/implement novel attacks!
+- Invent/implement novel attacks! (can "Differential Fault Analysis Using Symbolic Execution" be applied to whitebox/LUT based implementations?)
 
 # Resources
 
@@ -23,3 +23,13 @@ My goals are to:
 - Understanding Galois Fields: https://en.wikipedia.org/wiki/Finite_field_arithmetic
 
 - "A Tutorial on White-box AES": https://eprint.iacr.org/2013/104.pdf
+
+# "To Research" list:
+
+- Algebraic Fault Analysis
+
+- Differential Fault Analysis Using Symbolic Execution
+
+    - https://www.researchgate.net/publication/322089366_Differential_Fault_Analysis_Using_Symbolic_Execution
+
+    - https://hardwear.io/document/flip-a-bit-grab-a-key-hardwear-io-2017-v1-1.pdf
