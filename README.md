@@ -20,6 +20,8 @@ My goals are to:
 
 - AES: https://en.wikipedia.org/wiki/Advanced_Encryption_Standard
 
+- FIPS 197 (NIST AES Standard): https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.197.pdf
+
 - Understanding Galois Fields: https://en.wikipedia.org/wiki/Finite_field_arithmetic
 
 - "A Tutorial on White-box AES": https://eprint.iacr.org/2013/104.pdf
