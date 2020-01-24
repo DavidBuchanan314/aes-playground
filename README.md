@@ -22,6 +22,8 @@ My goals are to:
 
 - FIPS 197 (NIST AES Standard): https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.197.pdf
 
+- Useful debugging tool: https://www.cryptool.org/en/cto-highlights/aes
+
 - Understanding Galois Fields: https://en.wikipedia.org/wiki/Finite_field_arithmetic
 
 - "A Tutorial on White-box AES": https://eprint.iacr.org/2013/104.pdf

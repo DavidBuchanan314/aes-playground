@@ -7,7 +7,6 @@ from .utils import bitn, blen
 """
 
 
-#XXX: never actually used anywhere, here for reference
 def ff_add(a, b):
 	"""
 		Section 4.1: Addition
@@ -43,12 +42,15 @@ def ff_divmod(a, b):
 		            ----------
 		             000000001
 		
+		>>> ff_divmod(0b11111101111110, 0x11b)
+		(61, 1)
+		
 	"""
 
 	q = 0
 	r = a
 
-	while blen(r) >= blen(b):
+	while blen(r) >= blen(b): # XXX: I don't like this implementation
 		q ^= 1 << (blen(r) - blen(b))
 		r ^= b << (blen(r) - blen(b))
 
@@ -71,19 +73,16 @@ def ff_multiply(a, b, modulus=0x11b):
 	# similar to calculating 132*456 as:
 	# 123*6 + 1230*5 + 12300*4
 	result = 0
-	for i in range(blen(b)):
-		result ^= (a << i) * bitn(b, i)
+	while b:
+		result ^= a * (b & 1)
+		a <<= 1
+		b >>= 1
 
 	# calculate residue
 	_, r = ff_divmod(result, modulus)
 
 	return r
 
-
-#def ff_multiplicative_inverse(n, modulus=0x11b, order=8):
-#	for i in range(1, 1<<order):
-#		if ff_multiply(n, i, modulus) == 1:
-#			return i
 
 def ff_multiplicative_inverse(a, modulus=0x11b):
 	"""
@@ -100,4 +99,27 @@ def ff_multiplicative_inverse(a, modulus=0x11b):
 		(q, a), b = ff_divmod(b, a), a
 		x0, x1 = x1, x0 ^ ff_multiply(q, x1, modulus)
 
-	return ff_divmod(x0, modulus)[1]
+	_, r = ff_divmod(x0, modulus)
+
+	return r
+
+
+def ff_mulx(a, x):
+	"""
+		Section 4.2.1: Multiplication by x
+		
+		FIPS-197 describes an optimised method of doubling a polynomial, however
+		for simplicity we can just use ff_multiply(a, 2)
+		
+		>>> hex(ff_mulx(0x57, 0x13))
+		'0xfe'
+		
+	"""
+
+	result = 0
+	while x:
+		result ^= a * (x & 1)
+		a = ff_multiply(a, 2)
+		x >>= 1
+
+	return result
