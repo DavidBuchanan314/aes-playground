@@ -45,7 +45,7 @@ def shift_rows(state):
 		multiplication by {01}x^3 + {00}x^2 + {00}x^1 + {00}x^0, modulo x^4 + 1
 		
 		>>> shift_rows(b"ABCDefghIJKLmnop")
-		bytearray(b'ABCDfgheKLIJpmno')
+		bytearray(b'AfKpeJoDInChmBgL')
 		
 	"""
 
@@ -60,7 +60,7 @@ def inv_shift_rows(state):
 	"""
 		Section 5.3.1: InvShiftRows() Transformation
 		
-		>>> inv_shift_rows(b"ABCDfgheKLIJpmno")
+		>>> inv_shift_rows(b"AfKpeJoDInChmBgL")
 		bytearray(b'ABCDefghIJKLmnop')
 		
 	"""
