@@ -1,6 +1,11 @@
 # AES Playground
 
-My experiments in understanding AES, Whitebox AES, and related attacks
+My experiments in understanding AES, Whitebox AES, and related attacks.
+
+See `textbook_aes.py` and the contents of the `aes/` subdirectory for an AES128
+implementation, which maps as closely to the FIPS 197 spec as possible.
+
+### DISCLAIMER: This code is optimised for educational purposes. Do not use in a security context.
 
 My goals are to:
 
